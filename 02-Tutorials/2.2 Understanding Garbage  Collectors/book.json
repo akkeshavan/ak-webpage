@@ -1,0 +1,5 @@
+{
+  "title": "Garbage Collectors: A Deep Dive",
+  "author": "Anand Kumar Keshavan",
+  "description": "From theory to implementation: build three garbage collectors in C and integrate them with the LLVM runtime."
+}

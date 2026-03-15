@@ -1,9 +1,3 @@
 # Only track webpage; ignore all other top-level folders
-/01-About-Me/
-/02-Tutorials/
-/03-Experimental-Projects/
-
-# Ignore any other top-level file or folder not named webpage
-/*
-!.gitignore
-!webpage/
+ 
+/03-Experimental-Projects/ 
