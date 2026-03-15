@@ -1,0 +1,29 @@
+---
+layout: base.njk
+pagination:
+  data: tutorials.list
+  size: 1
+  alias: tutorial
+permalink: "/tutorials/{{ tutorial.slug }}/index.html"
+title: "{{ tutorial.title }}"
+---
+
+<article class="tutorial-overview">
+  <header>
+    <a href="/#tutorials" class="back">← Tutorials</a>
+    <h1>{{ tutorial.title }}</h1>
+  </header>
+  <div class="intro-summary">
+    <p>{{ tutorial.introSummary }}</p>
+  </div>
+  <nav class="toc">
+    <h2>Table of contents</h2>
+    <ol>
+      {% for entry in tutorial.toc %}
+      <li>
+        <a href="/tutorials/{{ tutorial.slug }}/{{ entry.file | chapterSlug }}/">{{ entry.title }}</a>
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+</article>

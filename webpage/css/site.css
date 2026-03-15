@@ -1,0 +1,397 @@
+/* Anand Kumar Keshavan — personal site */
+
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --text: #e4e4e4;
+  --muted: #888;
+  --accent: #7eb8da;
+  --accent-soft: rgba(126, 184, 218, 0.15);
+  --border: #2a2a2a;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --max-width: 52rem;
+  --radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+}
+
+.site-header nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-header a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-header a:hover {
+  color: var(--accent);
+}
+
+.site-main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  width: 100%;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Landing */
+.hero {
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  color: var(--muted);
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.intro p {
+  margin: 0;
+}
+
+.tutorials-section {
+  margin-top: 2rem;
+}
+
+.tutorials-section h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-desc {
+  color: var(--muted);
+  margin: 0 0 1.5rem 0;
+}
+
+.tutorial-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tutorial-list li {
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tutorial-list li:last-child {
+  border-bottom: none;
+}
+
+.tutorial-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tutorial-list a:hover {
+  text-decoration: underline;
+}
+
+.tutorial-intro {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Experimental Projects */
+.experimental-projects-section {
+  margin-top: 3rem;
+}
+
+.experimental-projects-section h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-list li {
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-list li:last-child {
+  border-bottom: none;
+}
+
+.project-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.project-list a:hover {
+  text-decoration: underline;
+}
+
+.project-desc {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Tutorial overview */
+.tutorial-overview header,
+.chapter header {
+  margin-bottom: 1.5rem;
+}
+
+.back {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.tutorial-overview h1,
+.chapter h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.intro-summary {
+  margin-bottom: 2rem;
+}
+
+.intro-summary p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.toc h2 {
+  font-size: 1.15rem;
+  margin: 0 0 1rem 0;
+  color: var(--muted);
+}
+
+.toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li {
+  margin-bottom: 0.5rem;
+}
+
+.toc a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* Chapter */
+.chapter-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.chapter-content {
+  margin: 2rem 0;
+}
+
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.chapter-nav .prev {
+  margin-right: auto;
+}
+
+.chapter-nav .next {
+  margin-left: auto;
+}
+
+.chapter-nav a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.chapter-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Prose — rendered markdown */
+.prose {
+  font-size: 1rem;
+}
+
+.prose h1 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem 0; }
+.prose h2 { font-size: 1.3rem; margin: 1.25rem 0 0.5rem 0; }
+.prose h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem 0; }
+.prose h4, .prose h5, .prose h6 { font-size: 1rem; margin: 0.75rem 0 0.5rem 0; }
+
+.prose p {
+  margin: 0 0 1rem 0;
+}
+
+.prose ul, .prose ol {
+  margin: 0 0 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+.prose pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--accent-soft);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--accent);
+  margin: 1rem 0;
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.prose th, .prose td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--surface);
+  font-weight: 600;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose em {
+  font-style: italic;
+}

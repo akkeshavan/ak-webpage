@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}Anand Kumar Keshavan</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="/">Anand Kumar Keshavan</a>
+      <a href="/#tutorials">Tutorials</a>
+      <a href="/#experimental-projects">Experimental Projects</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <p>Pune, India · <a href="https://github.com/akkeshavan">GitHub</a> · <a href="https://www.linkedin.com/in/anand-kumar-keshavan-18829a1">LinkedIn</a></p>
+  </footer>
+</body>
+</html>

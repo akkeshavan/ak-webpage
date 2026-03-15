@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: Home
+---
+
+<div class="hero">
+  <h1>Anand Kumar Keshavan</h1>
+  <p class="tagline">Pune, India</p>
+  <div class="intro">
+    <p>
+      I once built one of the first SLR compiler-compilers on MS-DOS, invented multi-factor auth for wireless payments, helped run one of the world’s largest poker networks, and shipped a Linux-based mobile OS before “smartphone” was a household word. These days I’ve circled back to my first love—compilers, type systems, and writing software that stays correct—while dabbling in GenAI, writing books on functional programming, and occasionally admitting I’m a retired musician and proudly neurodivergent. Still in Pune, still curious.
+    </p>
+  </div>
+</div>
+
+<section id="tutorials" class="tutorials-section">
+  <h2>Tutorials</h2>
+  <p class="section-desc">Hands-on guides to compilers, runtimes, and building systems from first principles.</p>
+  <ul class="tutorial-list">
+    {% for t in tutorials.list %}
+    <li>
+      <a href="/tutorials/{{ t.slug }}/">{{ t.title }}</a>
+      <span class="tutorial-intro">{{ t.introSummary }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="experimental-projects" class="experimental-projects-section">
+  <h2>Experimental Projects</h2>
+  <p class="section-desc">Ongoing research and side projects: compilers, formal methods, and language design.</p>
+  <ul class="project-list">
+    {% for p in experimentalProjects %}
+    <li>
+      <a href="{{ p.url }}" {% if p.external %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ p.title }}</a>
+      <span class="project-desc">{{ p.description }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,13 @@
+{
+  "name": "anand-keshavan-webpage",
+  "version": "1.0.0",
+  "description": "Personal site and tutorials for Anand Kumar Keshavan",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it": "^14.0.0"
+  }
+}
