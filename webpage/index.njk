@@ -19,7 +19,7 @@ title: Home
   <ul class="tutorial-list">
     {% for t in tutorials.list %}
     <li>
-      <a href="/tutorials/{{ t.slug }}/">{{ t.title }}</a>
+      <a href="{{ pathPrefix }}tutorials/{{ t.slug }}/">{{ t.title }}</a>
       <span class="tutorial-intro">{{ t.introSummary }}</span>
     </li>
     {% endfor %}
