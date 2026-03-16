@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if title %}{{ title }} — {% endif %}Anand Kumar Keshavan</title>
-  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="{{ pathPrefix }}css/site.css">
 </head>
 <body>
   <header class="site-header">
     <nav>
-      <a href="/">Anand Kumar Keshavan</a>
-      <a href="/#tutorials">Tutorials</a>
-      <a href="/#experimental-projects">Experimental Projects</a>
+      <a href="{{ pathPrefix }}">Anand Kumar Keshavan</a>
+      <a href="{{ pathPrefix }}#tutorials">Tutorials</a>
+      <a href="{{ pathPrefix }}#experimental-projects">Experimental Projects</a>
     </nav>
   </header>
   <main class="site-main">

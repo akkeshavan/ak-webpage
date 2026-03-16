@@ -1,3 +1,7 @@
 # Only track webpage; ignore all other top-level folders
  
 /03-Experimental-Projects/ 
+02-Tutorials/DEVTO_PUBLISHING.md
+02-Tutorials/publish-compiler-llvm-rust-to-devto.js
+02-Tutorials/publish-dir-to-devto.js
+02-Tutorials/publish-to-devto.js

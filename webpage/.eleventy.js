@@ -21,6 +21,11 @@ module.exports = function (eleventyConfig) {
     filename ? filename.replace(/\.md$/, "") : ""
   );
 
+  // For GitHub Pages project sites, the site usually lives at:
+  //   https://<user>.github.io/<repo-name>/
+  // You can override this with ELEVENTY_PATH_PREFIX, e.g. "/ak-webpage/".
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+
   return {
     dir: {
       input: ".",
@@ -32,6 +37,6 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
-    pathPrefix: "/",
+    pathPrefix,
   };
 };
