@@ -1,8 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy Eleventy site to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -11,27 +12,29 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: webpage/package-lock.json
+          node-version: 20
 
-      - name: Install and build
-        run: |
-          cd webpage
-          npm ci
-          npm run build
+      - name: Install dependencies
+        working-directory: webpage
+        run: npm ci || npm install
+
+      - name: Build site
+        working-directory: webpage
+        env:
+          ELEVENTY_PATH_PREFIX: "/ak-webpage/"
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -43,8 +46,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deploy
+        id: deployment
         uses: actions/deploy-pages@v4
