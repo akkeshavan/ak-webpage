@@ -4,13 +4,13 @@ pagination:
   data: tutorials.list
   size: 1
   alias: tutorial
-permalink: "tutorials/{{ tutorial.slug }}/index.html"
+permalink: "/tutorials/{{ tutorial.slug }}/index.html"
 title: "{{ tutorial.title }}"
 ---
 
 <article class="tutorial-overview">
   <header>
-    <a href="{{ pathPrefix }}#tutorials" class="back">← Tutorials</a>
+    <a href="{{ '/' | url }}#tutorials" class="back">← Tutorials</a>
     <h1>{{ tutorial.title }}</h1>
   </header>
   <div class="intro-summary">
@@ -21,7 +21,7 @@ title: "{{ tutorial.title }}"
     <ol>
       {% for entry in tutorial.toc %}
       <li>
-        <a href="{{ pathPrefix }}tutorials/{{ tutorial.slug }}/{{ entry.file | chapterSlug }}/">{{ entry.title }}</a>
+        <a href="{{ '/tutorials/' | url }}{{ tutorial.slug }}/{{ entry.file | chapterSlug }}/">{{ entry.title }}</a>
       </li>
       {% endfor %}
     </ol>

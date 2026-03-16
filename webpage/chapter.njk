@@ -4,13 +4,13 @@ pagination:
   data: tutorials.allChapters
   size: 1
   alias: ch
-permalink: "tutorials/{{ ch.tutorialSlug }}/{{ ch.file | chapterSlug }}/index.html"
+permalink: "/tutorials/{{ ch.tutorialSlug }}/{{ ch.file | chapterSlug }}/index.html"
 title: "{{ ch.title }}"
 ---
 
 <article class="chapter">
   <header>
-    <a href="{{ pathPrefix }}tutorials/{{ ch.tutorialSlug }}/" class="back">← {{ ch.tutorialTitle }}</a>
+    <a href="{{ '/tutorials/' | url }}{{ ch.tutorialSlug }}/" class="back">← {{ ch.tutorialTitle }}</a>
     <h1>{{ ch.title }}</h1>
     <p class="chapter-meta">Chapter {{ ch.index + 1 }} of {{ ch.totalChapters }}</p>
   </header>
@@ -21,12 +21,12 @@ title: "{{ ch.title }}"
   <nav class="chapter-nav">
     {% if ch.index > 0 %}
       {% set prev = tutorials.allChapters[pagination.pageNumber - 1] %}
-      <a href="{{ pathPrefix }}tutorials/{{ ch.tutorialSlug }}/{{ prev.file | chapterSlug }}/" class="prev">← {{ prev.title }}</a>
+      <a href="{{ '/tutorials/' | url }}{{ ch.tutorialSlug }}/{{ prev.file | chapterSlug }}/" class="prev">← {{ prev.title }}</a>
     {% endif %}
-    <a href="{{ pathPrefix }}tutorials/{{ ch.tutorialSlug }}/" class="toc-link">TOC</a>
+    <a href="{{ '/tutorials/' | url }}{{ ch.tutorialSlug }}/" class="toc-link">TOC</a>
     {% if ch.index < ch.totalChapters - 1 %}
       {% set next = tutorials.allChapters[pagination.pageNumber + 1] %}
-      <a href="{{ pathPrefix }}tutorials/{{ ch.tutorialSlug }}/{{ next.file | chapterSlug }}/" class="next">{{ next.title }} →</a>
+      <a href="{{ '/tutorials/' | url }}{{ ch.tutorialSlug }}/{{ next.file | chapterSlug }}/" class="next">{{ next.title }} →</a>
     {% endif %}
   </nav>
 </article>
