@@ -48,7 +48,7 @@ title: Home
     {% for p in experimentalProjects %}
     <li>
       <a href="{{ p.url }}" {% if p.external %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ p.title }}</a>
-      <span class="project-desc">{{ p.description }}</span>
+      <span class="project-desc">{{ p.description | safe }}</span>
     </li>
     {% endfor %}
   </ul>
