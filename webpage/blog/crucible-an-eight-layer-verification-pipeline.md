@@ -1,13 +1,15 @@
 ---
 layout: post.njk
 title: "Crucible: An Eight-Layer Verification Pipeline for LLM-Ported Rust"
-date: 2026-11-20
+date: 2026-11-22
 permalink: /blog/crucible-an-eight-layer-verification-pipeline/
 ---
 
 *When Z3 alone is not enough: combining symbolic execution, differential fuzzing, Kani, Miri, Verus, and Lean4 to verify C++ → Rust ports end-to-end.*
 
 > **Code**: The full source for this project is on GitHub at [akkeshavan/crucible](https://github.com/akkeshavan/crucible).
+
+> **This post is Part 2 of a series.** [Part 1 — Can You Trust an AI to Rewrite Your Code?](../can-you-trust-an-ai-to-rewrite-your-code/) introduces the Z3 LLVM-IR equivalence checker and the CEGIS repair loop that Crucible builds on. Reading it first is recommended but not required — the relevant background is summarised in the Layer 2 section below.
 
 ---
 
