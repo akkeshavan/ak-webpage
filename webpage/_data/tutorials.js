@@ -100,6 +100,43 @@ const tutorials = [
       { title: "Chapter 17: Improvements", file: "17-improvements.md" },
     ],
   },
+  {
+    slug: "lean4-theorem-proving",
+    title: "Lean4 for Software Developers: A Theorem Proving Tutorial",
+    folder: "02-Tutorials/2.5 Lean4 for Software Developers",
+    introSummary:
+      "A hands-on tutorial for software developers who want to use Lean4 as a theorem prover and formal verifier — not as a general-purpose language. Learn to state precise specifications, prove implementations correct, encode invariants in types, navigate Mathlib, and integrate formal verification into your SDLC. No prior proof assistant experience required.",
+    toc: [
+      { title: "Chapter 1 — What is Lean4? Proofs as programs", file: "Chapter01.md" },
+      { title: "Chapter 2 — Setup: elan, Lake, VS Code, Mathlib", file: "Chapter02.md" },
+      { title: "Chapter 3 — Propositions: AND, OR, NOT, IFF", file: "Chapter03.md" },
+      { title: "Chapter 4 — Tactics: intro, apply, omega, ring, simp", file: "Chapter04.md" },
+      { title: "Chapter 5 — Natural numbers and induction", file: "Chapter05.md" },
+      { title: "Chapter 6 — Proving properties of functions", file: "Chapter06.md" },
+      { title: "Chapter 7 — Algorithm correctness: sort and search", file: "Chapter07.md" },
+      { title: "Chapter 8 — Navigating Mathlib", file: "Chapter08.md" },
+      { title: "Chapter 9 — Lean4 in the SDLC", file: "Chapter09.md" },
+    ],
+  },
+  {
+    slug: "quantum-computing",
+    title: "Quantum Computing for Developers",
+    folder: "02-Tutorials/2.6 Quantum Computing for Developers",
+    introSummary:
+      "A practical, hands-on tutorial for software developers learning quantum computing from scratch — no physics degree required, just Python. Covers qubits, gates, core algorithms (Grover's, Deutsch-Jozsa), variational algorithms (VQE, QAOA), quantum ML, and running on real IBM hardware. Uses Qiskit and PennyLane.",
+    toc: [
+      { title: "Chapter 1 — Introduction", file: "chapter-01-introduction.md" },
+      { title: "Chapter 2 — Environment Setup", file: "chapter-02-setup.md" },
+      { title: "Chapter 3 — Qubits, Gates, Circuits", file: "chapter-03-qubits-gates-circuits.md" },
+      { title: "Chapter 4 — First Programs", file: "chapter-04-first-programs.md" },
+      { title: "Chapter 5 — Core Algorithms", file: "chapter-05-quantum-algorithms.md" },
+      { title: "Chapter 6 — PennyLane", file: "chapter-06-pennylane.md" },
+      { title: "Chapter 7 — Variational Algorithms", file: "chapter-07-variational-algorithms.md" },
+      { title: "Chapter 8 — Real Hardware", file: "chapter-08-real-hardware.md" },
+      { title: "Chapter 9 — Quantum ML", file: "chapter-09-quantum-ml.md" },
+      { title: "Chapter 10 — Capstone: Portfolio Optimizer", file: "chapter-10-capstone.md" },
+    ],
+  },
 ];
 
 // Flatten for 11ty pagination: every chapter as one item
