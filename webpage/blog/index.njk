@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Writing
+permalink: /blog/
+---
+<section class="blog-index">
+  <header>
+    <a href="{{ '/' | url }}" class="back">← Home</a>
+    <h1>Writing</h1>
+    <p class="section-desc">Long-form pieces on formal verification, compilers, and building systems that stay correct.</p>
+  </header>
+  <ul class="post-list">
+    <li>
+      <a href="{{ '/blog/crucible-an-eight-layer-verification-pipeline/' | url }}">Crucible: An Eight-Layer Verification Pipeline for LLM-Ported Rust</a>
+      <span class="post-date">November 20, 2026</span>
+      <p class="post-excerpt">When Z3 alone is not enough: combining symbolic execution, differential fuzzing, Kani, Miri, Verus, and Lean4 to verify C++ → Rust ports end-to-end.</p>
+    </li>
+    <li>
+      <a href="{{ '/blog/can-you-trust-an-ai-to-rewrite-your-code/' | url }}">Can You Trust an AI to Rewrite Your Code?</a>
+      <span class="post-date">November 19, 2026</span>
+      <p class="post-excerpt">Proving semantic equivalence between LLM-generated Rust and the C++ it came from, using LLVM IR and Z3.</p>
+    </li>
+  </ul>
+</section>

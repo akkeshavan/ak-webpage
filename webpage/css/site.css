@@ -395,3 +395,83 @@ body {
 .prose em {
   font-style: italic;
 }
+
+/* ── Writing / Blog ──────────────────────────────────────────────────────── */
+
+.writing-section {
+  margin-top: 3rem;
+}
+
+.writing-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.post-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.post-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.post-list a:hover {
+  color: var(--accent);
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.post-excerpt {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Post page ───────────────────────────────────────────────────────────── */
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-header h1 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin: 0.5rem 0 0.4rem 0;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Blog index ──────────────────────────────────────────────────────────── */
+
+.blog-index header {
+  margin-bottom: 2rem;
+}
+
+.blog-index h1 {
+  font-size: 1.75rem;
+  margin: 0.5rem 0 0.3rem 0;
+}

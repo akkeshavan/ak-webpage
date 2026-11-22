@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <header class="post-header">
+    <a href="{{ '/blog/' | url }}" class="back">← Writing</a>
+    <h1>{{ title }}</h1>
+    <p class="post-meta">{{ date | postDate }}</p>
+  </header>
+  <div class="post-content prose">
+    {{ content | safe }}
+  </div>
+</article>

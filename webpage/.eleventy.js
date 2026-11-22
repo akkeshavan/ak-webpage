@@ -21,6 +21,13 @@ module.exports = function (eleventyConfig) {
     filename ? filename.replace(/\.md$/, "") : ""
   );
 
+  // Human-readable post date (e.g. "November 20, 2026")
+  eleventyConfig.addFilter("postDate", (date) =>
+    new Date(date).toLocaleDateString("en-US", {
+      year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
+    })
+  );
+
   // For GitHub Pages project sites, the site usually lives at:
   //   https://<user>.github.io/<repo-name>/
   // You can override this with ELEVENTY_PATH_PREFIX, e.g. "/ak-webpage/".
