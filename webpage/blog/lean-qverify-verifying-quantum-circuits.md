@@ -299,3 +299,14 @@ The library is on GitHub. If you're familiar with Lean 4, the `theorems/` direct
 ---
 
 *Next up: closing the 6 stabilizer sorry stubs, extending the parameter shift rule to multi-qubit gates, and working toward a formally verified quantum compiler.*
+
+---
+
+## Resources
+
+- **[akkeshavan/lean-qverify](https://github.com/akkeshavan/lean-qverify)** — the library. `lake build` verifies all 52 theorems from scratch.
+- **[theorems/](https://github.com/akkeshavan/lean-qverify/tree/main/theorems)** — the independent verification sub-package. Each theorem is stated in plain form; build it to get your own machine-checked certificate.
+- **[Lean 4](https://lean-lang.org/)** — the proof assistant. Free, open source, runs on macOS, Linux, and Windows.
+- **[Mathlib4](https://leanprover-community.github.io/mathlib4_docs/)** — the community mathematics library lean-qverify builds on.
+- **[ZX-calculus for the working quantum computer scientist](https://arxiv.org/abs/2012.13966)** — van de Wetering (2020). The best introduction to the graphical rewriting framework used in the variational theorems.
+- **[Parameter shift rule](https://arxiv.org/abs/1811.11184)** — Schuld et al. (2019). The original paper proving the analytic gradient rule that T49 formalises.
