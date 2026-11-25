@@ -21,6 +21,8 @@ A quantum bug produces slightly wrong measurement statistics. Your Bell state pr
 
 I wanted to do something about this. The result is [lean-qverify](https://github.com/akkeshavan/lean-qverify): a Lean 4 library that formally proves properties of quantum circuits — not by running them, but by mathematical proof that holds for every possible input, forever.
 
+If you want to skip ahead: clone the repo, run `lake build` inside the [`theorems/`](https://github.com/akkeshavan/lean-qverify/tree/main/theorems) directory, and Lean's kernel will independently verify all 50 theorems on your machine in under 10 minutes. No trust required — the kernel checks the proof from scratch.
+
 This post explains what that means, how it works, and what 52 machine-checked theorems actually look like.
 
 ---
@@ -97,11 +99,10 @@ The result is a theorem — a named, kernel-checked proof that holds for all inp
 Here's the Bell state entanglement theorem, one of the nine Bell state proofs in the library:
 
 ```lean
--- Starting from |00⟩, measuring qubit 0 gives 0
--- with probability ≥ 1/2.
-theorem bellPrep_entangled :
-    bellPrep ⊨ .measurementProb QState.ket00 0 false (1/2) :=
-  bellPrep_entangled   -- the proof term — Lean's kernel checks it
+-- From theorems/BellState.lean — the independent verification wrapper.
+-- Lean's kernel checks that LeanQVerify.bellPrep_entangled has exactly this type.
+example : bellPrep ⊨ .measurementProb QState.ket00 0 false (1/2) :=
+  LeanQVerify.bellPrep_entangled
 ```
 
 The *proof* works by unfolding the circuit into its 4×4 unitary matrix, computing the matrix-vector product with the |00⟩ input vector, squaring the first amplitude to get a probability, and asking `norm_num` to verify that the result is ≥ 1/2. For a 2-qubit circuit, this is about 20 lines of Lean.
@@ -118,7 +119,7 @@ theorem H_H_eq_id : [Gate.H 0, Gate.H 0] ≅ [] := by
 
 ## The 52 Theorems
 
-The library contains 52 machine-checked theorems in seven groups.
+The library contains 52 machine-checked theorems across the project. 50 live in the independent `theorems/` sub-package — these are the ones a reviewer can verify with a standalone `lake build`. The remaining 2 are worked examples in the companion book. The 50 independent theorems fall into seven groups.
 
 **Bell states (T1–T9):** Nine theorems about the simplest entangled state — that it uses 2 gates, has depth ≤ 2, and that the joint measurement probabilities are P(|00⟩) ≥ 1/2, P(|11⟩) ≥ 1/2, P(|01⟩) = 0, P(|10⟩) = 0. These are the theorems that confirm Bell entanglement: the two qubits are perfectly correlated.
 
@@ -162,7 +163,7 @@ Consider a circuit with a single rotation gate RZ(θ). The measurement outcome i
 
 The parameter shift rule says:
 
-```
+```text
 f'(θ) = [f(θ + π/2) − f(θ − π/2)] / 2
 ```
 
@@ -170,7 +171,7 @@ You evaluate the circuit twice — once with θ shifted up by π/2 and once shif
 
 The underlying algebraic identity is a theorem about the rotation matrix RZ(θ):
 
-```
+```text
 RZ(θ + π/2) − RZ(θ − π/2) = −i√2 · Z · RZ(θ)
 ```
 
@@ -227,7 +228,7 @@ You can verify this:
 
 ```bash
 # From the repo root — should produce no output
-grep -Prn "^\s*sorry\s*$|:=\s*sorry" \
+grep -Ern "^\s*sorry\s*$|:=\s*sorry" \
   LeanQVerify/Circuit/Identities.lean \
   LeanQVerify/Circuit/Variational.lean \
   LeanQVerify/ZX/HybridRules.lean \
@@ -276,7 +277,7 @@ This is the entry point for most users. The formal Lean proofs are what the Pyth
 
 This is an early experiment.
 
-The stabilizer backend — which lets you verify Clifford circuits without computing their full exponentially-large matrix — has the 6 unproved claims mentioned above. They don't affect any current theorem, but they do limit the backend's formal soundness guarantee.
+The stabilizer backend — which lets you verify Clifford circuits without computing their full exponentially-large matrix — has the 6 unproved claims mentioned above. They don't affect any current theorem, but they do limit the backend's formal soundness guarantee. This is also where **Problem 2** from the opening bites back: the symbolic matrix unfolding used in proofs like `bellPrep_entangled` and Grover works fine for small circuits, but scaling behavioral proofs to 50+ qubits requires a sound stabilizer (or ZX rewriting) backend. Finishing those 6 stubs is what closes the gap between "proofs about small circuits" and "proofs about circuits of arbitrary size."
 
 Post-measurement state collapse is not modelled. The density matrix formalism handles mixed states and unitary evolution, but measuring a qubit and conditioning on the outcome (the "if the measurement was 0, do this next" pattern) requires partial trace and projection operators that are stubbed out.
 
@@ -290,7 +291,7 @@ None of this affects the 52 proved theorems. Those proofs are clean.
 
 Quantum hardware is getting serious. IBM has 1,000+ qubit devices. Compilation pipelines for real hardware have bugs. Those bugs don't crash — they shift your expectation values by 3% and you blame the noise model.
 
-Formal verification for quantum circuits is not a solved problem. The main prior work is SQIR and VOQC (Coq, 2021), which verified quantum compilers for a specific set of algorithms. lean-qverify is different in two ways: it targets Lean 4 with Mathlib4 rather than Coq, and it covers variational quantum algorithms — the class of algorithms most likely to run on near-term hardware — including the first machine-checked proof of the parameter shift rule.
+Formal verification for quantum circuits is not a solved problem. The main prior work is SQIR and VOQC (Coq, 2021), which verified quantum compilers for a specific set of algorithms. lean-qverify is different in two ways: it targets Lean 4 with Mathlib4 rather than Coq, and it covers variational quantum algorithms — the class of algorithms most likely to run on near-term hardware — including, to my knowledge, the first machine-checked proof of the parameter shift rule in Lean 4.
 
 It's also just useful to have a library of kernel-checked quantum identities. When you write a quantum compiler and want to know whether H∘RZ(θ)∘H = RX(θ), there's now a formal proof you can point to. Not "I ran it on 100 inputs." A proof.
 
